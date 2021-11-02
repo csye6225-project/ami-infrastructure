@@ -11,11 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-          packer build -var-file=vars.json \
-        -var 'aws_access_key=${{ secrets.AWS_ACCESS_KEY }}' \
-        -var 'aws_secret_key=${{ secrets.AWS_SECRET_KEY }}' \
-        -var 'vpc_id=vpc-080d943f60b2174ac' \
-        -var 'subnet_id=subnet-0ef9717c66e1d0b7f'\
-        -var 'source_ami=ami-09e67e426f25ce0d7' \
-        ami.json
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Build artifact
+      uses: hashicorp/packer-github-actions@master
+      with:
+        command: build
+        target: ami.json
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+        PACKER_LOG: 1
