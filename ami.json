@@ -12,7 +12,6 @@
             "ssh_username": "{{user `ssh_username`}}",
             "ami_users": ["{{user `ami_users`}}"],
             "ami_name": "csye6225_fall_{{timestamp}}",
-            "policy_arns": ["{{user `policy_arn_dev`}}"],
             "ami_description": "Ubuntu AMI for CSYE 6225 Fall",
             "launch_block_device_mappings": [
                 {
