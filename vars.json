@@ -1,10 +1,5 @@
 {
     "aws_region": "us-east-1",
     "aws_access_key": "",
-    "aws_secret_key": "",
-    "vpc_id": "vpc-033c61ccb1ca3d93f",
-    "subnet_id": "subnet-0bdc9ac4f2539099a",
-    "ami_users": "370412597903",
-    "volume_size": "8",
-    "volume_type": "gp2"
+    "aws_secret_key": ""
 }
