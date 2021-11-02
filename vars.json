@@ -8,7 +8,6 @@
     "ssh_username": "ubuntu",
     "instance_type": "t2.micro",
     "ami_users": "370412597903",
-    "policy_arn_dev": "arn:aws:iam::944214122070:user/ghactions-ami/gh2-ec2-ami",
     "device_name": "/dev/sda1",
     "volume_size": "8",
     "volume_type": "gp2"
