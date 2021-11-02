@@ -1,0 +1,24 @@
+---
+name: Build Artifact
+
+on:
+  pull_request:
+    types: [closed]
+    
+jobs:
+  merge-PR:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Build artifact
+      uses: hashicorp/packer-github-actions@master
+      with:
+        command: build
+        arguments: "-var-file=vars.json -var 'aws_access_key=${{secrets.AWS_ACCESS_KEY}}'  -var 'aws_secret_key=${{secrets.AWS_SECRET_KEY}}'"
+        target: ami.json
+      env:
+        PACKER_LOG: 1
